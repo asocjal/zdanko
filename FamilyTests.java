@@ -36,8 +36,6 @@ public class FamilyTests {
 		try {
 			Family family = new Family(1995);
 			family.addPerson("Michał", -3);
-			throw new RuntimeException("Test failed. Exception not thrown for nagative age");
-
 		} catch (Exception ex) {
 			if(!"Cannot add peron 'Michał'".equals(ex.getMessage())) {
 				throw new RuntimeException("Test failed. Incorrect exception message");
@@ -48,7 +46,9 @@ public class FamilyTests {
 			if(!"Age cannot be lower than 0".equals(ex.getCause().getMessage())) {
 				throw new RuntimeException("Test failed. Incorrect exception message");
 			}
+			return;
 		}
+		throw new RuntimeException("Test failed. Exception not thrown for nagative age");
 	}
 
 	public static void main(String[] args) {
